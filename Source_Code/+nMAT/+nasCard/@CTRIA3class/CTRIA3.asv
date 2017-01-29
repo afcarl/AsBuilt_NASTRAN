@@ -1,0 +1,34 @@
+classdef CTRIA3 < nMAT.cardClass
+    %CTRIA3 Summary of this class goes here
+    %   Detailed explanation goes here
+    
+    properties %(Access = private)
+        EID;        % Element ID
+        PID;        % Property ID
+        G;          % Grid point IDs
+        MCID;       % Material coord system ID
+        P;          % Cell array of grid point locations
+        C;          % Element centroids
+    end
+    
+    methods
+        function obj = CTRIA3(C)
+            f = obj.f;
+            obj.EID   = obj.getValue(C(1,f{2}));
+            obj.PID   = obj.getValue(C(1,f{3}));
+            obj.G(1)  = obj.getValue(C(1,f{4}));
+            obj.G(2)  = obj.getValue(C(1,f{5}));
+            obj.G(3)  = obj.getValue(C(1,f{6}));
+            obj.MCID  = obj.getValue(C(1,f{7}));
+        end
+    end
+    
+    methods
+        function matchGP(obj)
+            % add grid point location data into element object
+            ID = vertcat(obj.NODE.ID);
+            for i = 1:length(obj.CTRIA3)
+                for j = 1:
+            
+end
+
